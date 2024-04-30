@@ -18,6 +18,7 @@ function containsInappropriateText(text) {
 function scanPageForInappropriateText() {
   const pageText = document.body.innerText;
   if (containsInappropriateText(pageText)) {
+    // Send a message to the background script to block the website
     chrome.runtime.sendMessage({ action: "blockWebsite" });
   }
 }
